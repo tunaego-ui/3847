@@ -3,6 +3,15 @@
    프로토타입(개인홈_프로토타입_2.html)의 클래스·스타일을 그대로 계승.
    테마 변수는 ThemeProvider가 :root 인라인으로 덮어씀 (기획서 5.1)
    ========================================================== */
+
+@font-face {
+  font-family: 'Nanayang';
+  src: url('/온글잎 나나양.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+  
 /* 다크 지원 표식 (v2.0) — 강제 다크 엔진이 「이 사이트는 다크를 스스로 지원한다」로 판정해
    건너뛰게 하는 용도. 색은 전부 테마 설정이 명시적으로 칠하므로 실제 렌더 변화는 없다 */
 @media (prefers-color-scheme: dark){:root{--os-dark:1}}
@@ -20,8 +29,8 @@
   /* 원본 폰트 스택 (불변) — 역할 폰트(--sans/--serif/--font-menu)는 환경설정 > 디자인에서 재지정 */
   --serif-base:'Cormorant Garamond','Noto Serif KR',serif;
   --sans-base:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;
-  --serif:var(--serif-base);
-  --sans:var(--sans-base);
+  --serif:'Nanayang',var(--serif-base);
+  --sans:'Nanayang',var(--sans-base);
   /* 역할 폰트 크기 배율 — 모든 font-size는 calc(Npx*var(--fs,1)) 형태, --fs는 영역별로 재지정 */
   --fs:var(--fs-body,1);
   /* 테마 변수 — 환경설정 > 디자인에서 변경 (기본 = 다크 모드) */
