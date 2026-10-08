@@ -105,7 +105,12 @@ export async function createSupabaseBackend(
       if (patch.nickname !== undefined) row.nickname = patch.nickname;
       if (patch.avatarUrl !== undefined) row.avatar_url = patch.avatarUrl;
       if (patch.avatarColor !== undefined) row.avatar_color = patch.avatarColor;
-      const { error } = await sb.from('profiles').upsert(row, { onConflict: 'id' });
+      const { error } = await sb
+  .from('profiles')
+  .update(row)
+  .eq('id', data.user.id)
+  .select('id')
+  .single();
       return error ? { ok: false, error: error.message } : { ok: true };
     },
 
